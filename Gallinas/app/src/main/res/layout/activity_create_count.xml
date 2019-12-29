@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/TextViewCreateCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create a count"
+        android:textSize="16sp"></TextView>
+
+    <EditText
+        android:id="@+id/EditTextMail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mail"
+        android:layout_margin="5sp"></EditText>
+
+    <EditText
+        android:id="@+id/EditTextNickCreateCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="NickName"
+        android:layout_margin="5sp"></EditText>
+
+    <EditText
+        android:id="@+id/EditTextPasswordCreateCount01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_margin="5sp"></EditText>
+
+    <EditText
+        android:id="@+id/EditTextPasswordCreateCount02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password again"
+        android:inputType="textPassword"
+        android:layout_margin="5sp"></EditText>
+
+    <EditText
+        android:id="@+id/EditTextUserFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Your first name"
+        android:layout_margin="5sp"></EditText>
+
+    <EditText
+        android:id="@+id/EditTextUserLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Your last name"
+        android:layout_margin="5sp"></EditText>
+
+    <Button
+        android:id="@+id/btnFormCreateCount"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Create count"></Button>
+</LinearLayout>
