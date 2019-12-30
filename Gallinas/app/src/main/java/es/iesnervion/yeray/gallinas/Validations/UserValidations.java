@@ -3,9 +3,11 @@ package es.iesnervion.yeray.gallinas.Validations;
 import android.content.Context;
 import android.util.Patterns;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 import es.iesnervion.yeray.gallinas.DDBB.ManejadorBaseDeDatos;
+import es.iesnervion.yeray.gallinas.Entities.Usuario;
 import es.iesnervion.yeray.gallinas.Utilities.FuncionesCadenas;
 
 public class UserValidations {
@@ -73,7 +75,7 @@ public class UserValidations {
     * Salida:
     *   -boolean exist
     * Postcondiciones: El método devuelve un valor booleano asociado al nombre, true
-    * si el nick aún no existe en la base de datos o false en caso contrario.
+    * si el nick existe en la base de datos o false en caso contrario.
     * */
     public boolean existNickName(String nick, Context context){
         boolean exist = false;
@@ -81,6 +83,34 @@ public class UserValidations {
 
         if(manejador.getUser(nick) != null){//Si existe el nick en la base de datos
             exist = true;
+        }
+
+        return exist;
+    }
+
+    /*
+     * Interfaz
+     * Nombre: existMail
+     * Comentario: Este método nos permite verificar si ya existe un mail específico
+     * en la base de datos de la aplicación Gallinas.
+     * Cabecera: public boolean existMail(String mail)
+     * Entrada:
+     *   -String mail
+     *   -Context context
+     * Salida:
+     *   -boolean exist
+     * Postcondiciones: El método devuelve un valor booleano asociado al nombre, true
+     * si el mail existe en la base de datos o false en caso contrario.
+     * */
+    public boolean existMail(String mail, Context context){
+        boolean exist = false;
+        ManejadorBaseDeDatos manejador = new ManejadorBaseDeDatos(context);
+        List<Usuario> usuarios = manejador.getAllUsers();
+
+        for(int i = 0; i < usuarios.size() && !exist; i++){
+            if(usuarios.get(i).getCorreo().equals(mail)){
+                exist = true;
+            }
         }
 
         return exist;

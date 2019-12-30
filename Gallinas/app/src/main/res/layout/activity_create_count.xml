@@ -57,5 +57,6 @@
         android:id="@+id/btnFormCreateCount"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Create count"></Button>
+        android:text="Create count"
+        android:onClick="tryMakeCount"></Button>
 </LinearLayout>

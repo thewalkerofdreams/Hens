@@ -11,12 +11,13 @@ import es.iesnervion.yeray.gallinas.Entities.Usuario;
 
 public class CreateCountActivityVM extends AndroidViewModel {
 
-    private MutableLiveData<String> nickName, password, mail, firstName, lastName;
+    private MutableLiveData<String> nickName, password01, password02, mail, firstName, lastName;
 
     public CreateCountActivityVM(Application application){
         super(application);
         this.nickName = new MutableLiveData<>();
-        this.password = new MutableLiveData<>();
+        this.password01 = new MutableLiveData<>();
+        this.password02 = new MutableLiveData<>();
         this.mail = new MutableLiveData<>();
         this.firstName = new MutableLiveData<>();
         this.lastName = new MutableLiveData<>();
@@ -31,12 +32,20 @@ public class CreateCountActivityVM extends AndroidViewModel {
         this.nickName.setValue(nickName);
     }
 
-    public LiveData<String> getPassword(){
-        return this.password;
+    public LiveData<String> getPassword01(){
+        return this.password01;
     }
 
-    public void setPassword(String password){
-        this.password.setValue(password);
+    public void setPassword01(String password01){
+        this.password01.setValue(password01);
+    }
+
+    public LiveData<String> getPassword02(){
+        return this.password02;
+    }
+
+    public void setPassword02(String password02){
+        this.password02.setValue(password02);
     }
 
     public LiveData<String> getMail(){
@@ -75,7 +84,7 @@ public class CreateCountActivityVM extends AndroidViewModel {
     * */
     public void insertarNuevaCuenta(){
         ManejadorBaseDeDatos manejadorBaseDeDatos = new ManejadorBaseDeDatos(getApplication());
-        Usuario usuario = new Usuario(getNickName().getValue(), getPassword().getValue(), getMail().getValue(),
+        Usuario usuario = new Usuario(getNickName().getValue(), getPassword01().getValue(), getMail().getValue(),
                 getFirstName().getValue(), getLastName().getValue());
         manejadorBaseDeDatos.insertUser(usuario);
     }
