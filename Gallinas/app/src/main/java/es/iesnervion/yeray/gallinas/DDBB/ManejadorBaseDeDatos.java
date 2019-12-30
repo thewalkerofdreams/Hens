@@ -58,6 +58,8 @@ public class ManejadorBaseDeDatos {
         return usuarioDao.getUser(nick);
     }
 
+    public Usuario getUserByMail(String mail){return usuarioDao.getUserByMail(mail);}
+
     public void insertUser(Usuario user){
         usuarioDao.insertUser(user);
     }

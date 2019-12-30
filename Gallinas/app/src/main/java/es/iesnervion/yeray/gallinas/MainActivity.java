@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import es.iesnervion.yeray.gallinas.DDBB.ManejadorBaseDeDatos;
@@ -92,6 +93,20 @@ public class MainActivity extends AppCompatActivity {
      * */
     public void throwCreateCountActivity(View v){
         Intent i = new Intent(this, CreateCountActivity.class);
+        startActivity(i);
+    }
+
+    /*
+     * Intefaz
+     * Nombre: throwGetNewPasswordActivity
+     * Comentario: Este método nos permite lanzar la actividad GetNewPasswordActivity.
+     * Cabecera: public void throwGetNewPasswordActivity(View v)
+     * Entrada:
+     *   -View v
+     * Postcondiciones: El método lanza la actividad GetNewPasswordActivity.
+     * */
+    public void throwGetNewPasswordActivity(View v){
+        Intent i = new Intent(this, GetNewPasswordActivity.class);
         startActivity(i);
     }
 }

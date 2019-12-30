@@ -44,23 +44,23 @@ public class GetNewPasswordActivityVM extends ViewModel {
         int numCaracteres = random.nextInt(20)+5;
 
         for(int i = 0; i < numCaracteres / 4; i++){//Insertamos las letras en mayúscula
-            clave += random.nextInt(25)+66;
+            clave += Character.toString((char)(random.nextInt(25)+66));
         }
 
         for(int i = 0; i < numCaracteres / 4; i++){//Insertamos las letras en minúscula
-            clave += random.nextInt(25)+98;
+            clave += Character.toString((char)(random.nextInt(25)+98));
         }
 
         for(int i = 0; i < numCaracteres / 4; i++){//Insertamos los números
-            clave += random.nextInt(10)+49;
+            clave += Character.toString((char)(random.nextInt(10)+49));
         }
 
         for(int i = 0; i < numCaracteres / 4; i++){//Insertamos los caracteres espaciales
-            clave += random.nextInt(14)+34;
+            clave += Character.toString((char)(random.nextInt(14)+34));
         }
 
         for(int i = clave.length(); i < numCaracteres; i++){//Si aún quedan caracteres
-            clave += random.nextInt(25)+66;
+            clave += Character.toString((char)(random.nextInt(25)+66));
         }
 
         return clave;

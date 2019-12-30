@@ -32,9 +32,11 @@
         android:layout_height="18dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="8dp"
-        android:text=" Did you forget your password01?"
+        android:text=" Did you forget your password?"
         android:textColor="#2471A3"
+        android:focusable="true"
         android:clickable="true"
+        android:onClick="throwGetNewPasswordActivity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 

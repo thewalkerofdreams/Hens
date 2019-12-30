@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".CreateCountActivity"></activity>
+        <activity android:name=".GetNewPasswordActivity"></activity>
     </application>
 
 </manifest>

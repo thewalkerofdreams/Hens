@@ -18,6 +18,9 @@ public interface UsuarioDao {
     @Query("SELECT * FROM usuario WHERE nick = :nick")
     Usuario getUser(String nick);
 
+    @Query("SELECT * FROM usuario WHERE correo = :mail")
+    Usuario getUserByMail(String mail);
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)//Si surge algún conflicto en la inserción se realizará un reemplazo
     void insertUser(Usuario user);
 

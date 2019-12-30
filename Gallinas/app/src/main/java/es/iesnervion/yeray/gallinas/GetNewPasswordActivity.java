@@ -7,12 +7,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import es.iesnervion.yeray.gallinas.DDBB.ManejadorBaseDeDatos;
+import es.iesnervion.yeray.gallinas.Entities.Usuario;
 import es.iesnervion.yeray.gallinas.Validations.UserValidations;
 import es.iesnervion.yeray.gallinas.ViewModels.CreateCountActivityVM;
 import es.iesnervion.yeray.gallinas.ViewModels.GetNewPasswordActivityVM;
@@ -24,7 +27,7 @@ public class GetNewPasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_change_password);
 
         mail = findViewById(R.id.EditTextMailGetPassword);
 
@@ -52,12 +55,19 @@ public class GetNewPasswordActivity extends AppCompatActivity {
      * */
     public void sendNewPassword(View v){
         UserValidations validations = new UserValidations();
+        ManejadorBaseDeDatos manejadora = new ManejadorBaseDeDatos(this);
+        String nuevaClave = "";
+        Usuario usuario;
         getNewPasswordActivityVM.setMail(mail.getText().toString());
 
         if(getNewPasswordActivityVM.getMail().getValue() != null && !getNewPasswordActivityVM.getMail().getValue().equals("")){
             if(validations.correoValido(getNewPasswordActivityVM.getMail().getValue())){
                 if(validations.existMail(getNewPasswordActivityVM.getMail().getValue(), this)){
-                    sendNewKeyByMail(getNewPasswordActivityVM.getMail().getValue());
+                    nuevaClave = getNewPasswordActivityVM.claveAutogenerada();//Obtenemos la nueva clave
+                    sendNewKeyByMail(getNewPasswordActivityVM.getMail().getValue(), nuevaClave);//Enviamos el cooreo con la nueva clave
+                    usuario = manejadora.getUserByMail(getNewPasswordActivityVM.getMail().getValue());
+                    usuario.setPassword(nuevaClave);//Cambiamos la clave del usuario por la autogenerada
+                    manejadora.updateUser(usuario);//Modificamos los datos en la base de datos de la aplicación
                     Toast.makeText(this, "Se ha enviado la nueva clave al correo.", Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(this, "Este correo no pertenece a ninguna cuenta de usuario.", Toast.LENGTH_SHORT).show();
@@ -68,8 +78,6 @@ public class GetNewPasswordActivity extends AppCompatActivity {
         }else{
             Toast.makeText(this, "Debes introducir un correo.", Toast.LENGTH_SHORT).show();
         }
-        Intent i = new Intent(this, CreateCountActivity.class);
-        startActivity(i);
     }
 
     /*
@@ -77,15 +85,16 @@ public class GetNewPasswordActivity extends AppCompatActivity {
      * Nombre: sendNewKeyByMail
      * Comentario: Este método nos permite enviar una nueva clave a
      * un email.
-     * Cabecera: public boolean sendNewKeyByMail(String mail)
+     * Cabecera: public boolean sendNewKeyByMail(String mail, String nuevaClave)
      * Entrada:
      *   -String mail
+     *   -String nuevaClave
      * Salida:
      *   -boolean send
      * Postcondiciones: El método devuelve un valor booleano asociado al nombre,
      * true si se ha conseguido enviar la nueva clave o falso en caso contrario.
      * */
-    public boolean sendNewKeyByMail(String mail){
+    public boolean sendNewKeyByMail(String mail, String nuevaClave){
         boolean send = true;
         Log.e("Test email:", "enviando email");
         String[] TO = {mail};
@@ -97,7 +106,7 @@ public class GetNewPasswordActivity extends AppCompatActivity {
         emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
         emailIntent.putExtra(Intent.EXTRA_CC, CC);
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "New key Gallinas app");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Aquí tiene su nueva clave : "+getNewPasswordActivityVM.claveAutogenerada());
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Aquí tiene su nueva clave : "+nuevaClave);
 
         try {
             startActivity(Intent.createChooser(emailIntent, "Send mail..."));
