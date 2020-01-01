@@ -29,6 +29,8 @@ public class ManejadorBaseDeDatos {
         return gallinaDao.getAllHens();
     }
 
+    public List<Gallina> getAllHens(String nickUser){return gallinaDao.getAllHens(nickUser);}
+
     public Gallina getHen(int id) {
         return gallinaDao.getHen(id);
     }

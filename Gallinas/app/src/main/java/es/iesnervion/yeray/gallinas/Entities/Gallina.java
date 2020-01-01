@@ -17,17 +17,19 @@ public class Gallina {
     private String nombre;
     private double peso;
     private double altura;
+    private String nickUsuario;
 
     public Gallina() {
     }
 
     @Ignore
-    public Gallina(int id, String nombre, String pedigri, double peso, double altura){
+    public Gallina(int id, String nombre, String pedigri, double peso, double altura, String nickUsuario){
         this.id = id;
         this.nombre = nombre;
         this.pedigri = pedigri;
         this.peso = peso;
         this.altura = altura;
+        this.nickUsuario = nickUsuario;
     }
 
     public int getId() {
@@ -68,5 +70,13 @@ public class Gallina {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getNickUsuario() {
+        return nickUsuario;
+    }
+
+    public void setNickUsuario(String nickUsuario) {
+        this.nickUsuario = nickUsuario;
     }
 }

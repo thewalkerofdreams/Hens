@@ -74,10 +74,10 @@ public class CreateCountActivityVM extends AndroidViewModel {
 
     /*
     * Interfaz
-    * Nombre: insertarNuevaCuenta
+    * Nombre: insertarNuevaGallina
     * Comentario: Este método nos permite insertar una nueva cuenta en la base de
     * datos de la aplicación Gallinas con los datos del ViewModel "CreateCountActivityVM".
-    * Cabecera: public void insertarNuevaCuenta()
+    * Cabecera: public void insertarNuevaGallina()
     * Precondiciones:
     *   -Los datos del ViewModel "CreateCountActivityVM" deben ser válidos.
     * Postcondiciones: El método inserta una nueva cuenta en la base de datos de la aplicación.

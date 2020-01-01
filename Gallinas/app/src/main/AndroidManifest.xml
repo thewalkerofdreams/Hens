@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".CreateCountActivity"></activity>
         <activity android:name=".GetNewPasswordActivity"></activity>
+        <activity android:name=".HenListActivity"></activity>
+        <activity android:name=".CreateHenActivity"></activity>
     </application>
 
 </manifest>

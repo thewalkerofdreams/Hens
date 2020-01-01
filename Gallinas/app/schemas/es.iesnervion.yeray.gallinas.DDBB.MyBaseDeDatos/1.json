@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "ad76b41086a924871568e9127d8ab9f5",
+    "identityHash": "1858df1ff8835a3c1593b494a0a8631d",
     "entities": [
       {
         "tableName": "gallina",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `pedigri` TEXT, `nombre` TEXT, `peso` REAL NOT NULL, `altura` REAL NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `pedigri` TEXT, `nombre` TEXT, `peso` REAL NOT NULL, `altura` REAL NOT NULL, `nickUsuario` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -37,6 +37,12 @@
             "columnName": "altura",
             "affinity": "REAL",
             "notNull": true
+          },
+          {
+            "fieldPath": "nickUsuario",
+            "columnName": "nickUsuario",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -96,7 +102,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"ad76b41086a924871568e9127d8ab9f5\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"1858df1ff8835a3c1593b494a0a8631d\")"
     ]
   }
 }

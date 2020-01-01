@@ -98,8 +98,6 @@ public class CreateCountActivity extends AppCompatActivity {
      * */
     public void tryMakeCount(View v){
         UserValidations validations = new UserValidations();
-        String uno = password01.getText().toString();
-        String dos = password02.getText().toString();
         createCountActivityVM.setMail(mail.getText().toString());
         createCountActivityVM.setNickName(nickName.getText().toString());
         createCountActivityVM.setPassword01(password01.getText().toString());

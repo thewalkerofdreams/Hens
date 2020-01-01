@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="10sp"
+            android:text="Name: "></TextView>
+
+        <EditText
+            android:id="@+id/EditTextNombreCrearGallina"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="10sp"
+            android:minWidth="90sp"></EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="10sp"
+            android:text="Pedigree: "></TextView>
+
+        <EditText
+            android:id="@+id/EditTextPedigriCrearGallina"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="10sp"
+            android:minWidth="90sp"></EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="10sp"
+            android:text="Weight: "></TextView>
+
+        <EditText
+            android:id="@+id/EditTextPesoCrearGallina"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="10sp"
+            android:minWidth="90sp"></EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="10sp"
+            android:text="Height: "></TextView>
+
+        <EditText
+            android:id="@+id/EditTextAlturaCrearGallina"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="10sp"
+            android:minWidth="90sp"></EditText>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnCreateHen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:onClick="tryMakeHen"
+        android:text="Create Hen"></Button>
+</LinearLayout>

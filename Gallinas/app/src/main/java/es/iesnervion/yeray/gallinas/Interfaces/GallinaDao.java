@@ -15,6 +15,9 @@ public interface GallinaDao {
     @Query("SELECT * FROM gallina")
     List<Gallina> getAllHens();
 
+    @Query("SELECT * FROM gallina WHERE nickUsuario = :nickUser")
+    List<Gallina> getAllHens(String nickUser);
+
     @Query("SELECT * FROM gallina WHERE id = :id")
     Gallina getHen(int id);
 

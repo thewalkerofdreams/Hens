@@ -70,7 +70,9 @@ public class MainActivity extends AppCompatActivity {
             if(mainActivityVM.getPassword().getValue() != null && !mainActivityVM.getPassword().getValue().equals("")){
                 usuario = manejador.getUser(mainActivityVM.getNick().getValue());
                 if(usuario != null && usuario.getPassword().equals(mainActivityVM.getPassword().getValue())){
-                    Toast.makeText(this, "Perfecto.", Toast.LENGTH_SHORT).show();
+                    i = new Intent(this, HenListActivity.class);
+                    i.putExtra("nombreUsuario", usuario.getNick());
+                    startActivity(i);
                 }else{
                     Toast.makeText(this, "El usuario o contraseña son incorrectos.", Toast.LENGTH_SHORT).show();
                 }
