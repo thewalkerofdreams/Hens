@@ -6,26 +6,26 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_margin="10sp"
+            android:layout_margin="5sp"
             android:text="Name: "></TextView>
 
         <TextView
             android:id="@+id/TextViewNombreGallina"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_margin="10sp"
-            android:minWidth="90sp"></TextView>
+            android:layout_margin="5sp"
+            android:minWidth="80sp"></TextView>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_margin="10sp"
+            android:layout_margin="5sp"
             android:text="Pedigree: "></TextView>
 
         <TextView
             android:id="@+id/TextViewPedigriGallina"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_margin="10sp"
-            android:minWidth="90sp"></TextView>
+            android:layout_margin="5sp"
+            android:minWidth="80sp"></TextView>
 </LinearLayout>

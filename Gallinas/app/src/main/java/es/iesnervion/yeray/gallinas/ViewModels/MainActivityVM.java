@@ -1,7 +1,5 @@
 package es.iesnervion.yeray.gallinas.ViewModels;
 
-import android.view.View;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;

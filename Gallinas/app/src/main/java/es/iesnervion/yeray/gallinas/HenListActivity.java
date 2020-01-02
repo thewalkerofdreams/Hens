@@ -1,5 +1,6 @@
 package es.iesnervion.yeray.gallinas;
 
+import android.app.Notification;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,8 +38,7 @@ public class HenListActivity extends AppCompatActivity implements AdapterView.On
 
         henListActivityVM = ViewModelProviders.of(this).get(HenListActivityVM.class);
         henListActivityVM.setNickUsuario(getIntent().getStringExtra("nombreUsuario"));
-        listadoGallinas = henListActivityVM.getListadoGallinas().getValue();
-
+        listadoGallinas = henListActivityVM.getListadoGallinas().getValue();//Obtenemos el listado de gallinas
         listView = findViewById(R.id.ListViewHens);
 
         adapter = new AdapterHenList(this, R.layout.item_list, listadoGallinas);
@@ -132,7 +132,8 @@ public class HenListActivity extends AppCompatActivity implements AdapterView.On
     public void throwCreateHenActivity(View v){
         Intent i = new Intent(this, CreateHenActivity.class);
         i.putExtra("nombreUsuario", henListActivityVM.getNickUsuario());
-        startActivity(i);
+        //startActivity(i);
+        startActivityForResult(i, 1);
     }
 
     /*
@@ -151,5 +152,15 @@ public class HenListActivity extends AppCompatActivity implements AdapterView.On
         listadoGallinas = henListActivityVM.getListadoGallinas().getValue();
         adapter = new AdapterHenList(this, R.layout.item_list, listadoGallinas);
         listView.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==1 && resultCode == RESULT_OK)
+        {
+            recargarLista();
+        }
     }
 }

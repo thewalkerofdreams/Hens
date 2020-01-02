@@ -51,6 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="10sp"
+            android:inputType="numberDecimal"
             android:minWidth="90sp"></EditText>
     </LinearLayout>
 
@@ -68,6 +69,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="10sp"
+            android:inputType="numberDecimal"
             android:minWidth="90sp"></EditText>
     </LinearLayout>
 

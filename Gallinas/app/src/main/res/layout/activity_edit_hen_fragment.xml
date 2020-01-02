@@ -10,28 +10,28 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_margin="10sp"
+            android:layout_margin="5sp"
             android:text="Name: "></TextView>
 
         <EditText
             android:id="@+id/EditTextNombreGallina"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_margin="10sp"
-            android:minWidth="90sp"></EditText>
+            android:layout_margin="5sp"
+            android:minWidth="80sp"></EditText>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_margin="10sp"
+            android:layout_margin="5sp"
             android:text="Pedigree: "></TextView>
 
         <EditText
             android:id="@+id/EditTextPedigriGallina"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_margin="10sp"
-            android:minWidth="90sp"></EditText>
+            android:layout_margin="5sp"
+            android:minWidth="80sp"></EditText>
     </LinearLayout>
 
     <LinearLayout
@@ -49,6 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="5sp"
+            android:inputType="numberDecimal"
             android:minWidth="50sp"></EditText>
 
         <TextView
@@ -62,6 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="5sp"
+            android:inputType="numberDecimal"
             android:minWidth="50sp"></EditText>
 
         <Button

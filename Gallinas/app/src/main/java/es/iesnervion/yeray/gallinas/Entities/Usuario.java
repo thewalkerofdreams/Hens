@@ -3,7 +3,6 @@ package es.iesnervion.yeray.gallinas.Entities;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.Ignore;
-import androidx.room.PrimaryKey;
 
 @Entity(tableName = "usuario", primaryKeys = {"nick", "correo"})//Indicamos el nombre que tendrá la tabla, en este caso lo podríamos quitar
 public class Usuario {

@@ -87,14 +87,16 @@ public class CreateHenActivity extends AppCompatActivity {
         createHenActivityVM.setHeight(height.getText().toString());
         if(createHenActivityVM.getName().getValue() != null && !createHenActivityVM.getName().getValue().equals("")){
             if(createHenActivityVM.getPedigree().getValue() != null && !createHenActivityVM.getPedigree().getValue().equals("")){
-                if(createHenActivityVM.getWeight().getValue() != null && !createHenActivityVM.getWeight().getValue().equals("") && Integer.valueOf(createHenActivityVM.getWeight().getValue()) > 0 &&
-                        Integer.valueOf(createHenActivityVM.getWeight().getValue()) < 30){
-                    if(createHenActivityVM.getHeight().getValue() != null && !createHenActivityVM.getHeight().getValue().equals("") && Integer.valueOf(createHenActivityVM.getHeight().getValue()) > 0 &&
-                            Integer.valueOf(createHenActivityVM.getHeight().getValue()) < 3){
+                if(createHenActivityVM.getWeight().getValue() != null && !createHenActivityVM.getWeight().getValue().equals("") && Double.valueOf(createHenActivityVM.getWeight().getValue()) > 0 &&
+                        Double.valueOf(createHenActivityVM.getWeight().getValue()) < 30){
+                    if(createHenActivityVM.getHeight().getValue() != null && !createHenActivityVM.getHeight().getValue().equals("") && Double.valueOf(createHenActivityVM.getHeight().getValue()) > 0 &&
+                            Double.valueOf(createHenActivityVM.getHeight().getValue()) < 3){
                             createHenActivityVM.insertarNuevaGallina();
-                            i = new Intent(this, HenListActivity.class);
-                            i.putExtra("nombreUsuario", createHenActivityVM.getNickUsuario());
-                            startActivity(i);
+                            setResult(RESULT_OK);
+                            finish();
+                            //i = new Intent(this, HenListActivity.class);
+                            //i.putExtra("nombreUsuario", createHenActivityVM.getNickUsuario());
+                            //startActivity(i);
                     }else{
                         Toast.makeText(this, "Debes escribir una altura mayor que 0 y menor que 3.", Toast.LENGTH_SHORT).show();
                     }

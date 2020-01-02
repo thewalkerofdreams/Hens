@@ -8,13 +8,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import es.iesnervion.yeray.gallinas.DDBB.ManejadorBaseDeDatos;
 import es.iesnervion.yeray.gallinas.Entities.Usuario;
-import es.iesnervion.yeray.gallinas.Validations.UserValidations;
-import es.iesnervion.yeray.gallinas.ViewModels.CreateCountActivityVM;
 import es.iesnervion.yeray.gallinas.ViewModels.MainActivityVM;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
         nick = findViewById(R.id.editTextNickName);
         password = findViewById(R.id.editTextPassword);
-
         mainActivityVM = ViewModelProviders.of(this).get(MainActivityVM.class);
 
         //observers
@@ -68,10 +64,10 @@ public class MainActivity extends AppCompatActivity {
         mainActivityVM.setPassword(password.getText().toString());
         if(mainActivityVM.getNick().getValue() != null && !mainActivityVM.getNick().getValue().equals("")){
             if(mainActivityVM.getPassword().getValue() != null && !mainActivityVM.getPassword().getValue().equals("")){
-                usuario = manejador.getUser(mainActivityVM.getNick().getValue());
-                if(usuario != null && usuario.getPassword().equals(mainActivityVM.getPassword().getValue())){
+                usuario = manejador.getUser(mainActivityVM.getNick().getValue());//Obtenemos el usuario real a través de nick
+                if(usuario != null && usuario.getPassword().equals(mainActivityVM.getPassword().getValue())){//comprobamos que el nick y la contraseña coincidan
                     i = new Intent(this, HenListActivity.class);
-                    i.putExtra("nombreUsuario", usuario.getNick());
+                    i.putExtra("nombreUsuario", usuario.getNick());//Pasamos el nick de usuario a la siguiente actividad
                     startActivity(i);
                 }else{
                     Toast.makeText(this, "El usuario o contraseña son incorrectos.", Toast.LENGTH_SHORT).show();
@@ -102,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
      * Intefaz
      * Nombre: throwGetNewPasswordActivity
      * Comentario: Este método nos permite lanzar la actividad GetNewPasswordActivity.
+     * Se lanzará esta actividad cuando el usuario desee obtener una nueva clave a través de su
+     * correo.
      * Cabecera: public void throwGetNewPasswordActivity(View v)
      * Entrada:
      *   -View v

@@ -1,13 +1,11 @@
 package es.iesnervion.yeray.gallinas;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +15,6 @@ import androidx.lifecycle.ViewModelProviders;
 import es.iesnervion.yeray.gallinas.DDBB.ManejadorBaseDeDatos;
 import es.iesnervion.yeray.gallinas.Entities.Usuario;
 import es.iesnervion.yeray.gallinas.Validations.UserValidations;
-import es.iesnervion.yeray.gallinas.ViewModels.CreateCountActivityVM;
 import es.iesnervion.yeray.gallinas.ViewModels.GetNewPasswordActivityVM;
 
 public class GetNewPasswordActivity extends AppCompatActivity {
@@ -30,7 +27,6 @@ public class GetNewPasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_change_password);
 
         mail = findViewById(R.id.EditTextMailGetPassword);
-
         getNewPasswordActivityVM = ViewModelProviders.of(this).get(GetNewPasswordActivityVM.class);
 
         final Observer<String> mailObserver = new Observer<String>() {

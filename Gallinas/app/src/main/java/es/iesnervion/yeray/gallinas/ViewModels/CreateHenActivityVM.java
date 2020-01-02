@@ -75,8 +75,8 @@ public class CreateHenActivityVM extends AndroidViewModel {
      * */
     public void insertarNuevaGallina() {
         ManejadorBaseDeDatos manejadorBaseDeDatos = new ManejadorBaseDeDatos(getApplication());
-        Gallina gallina = new Gallina(0, this.name.getValue(), this.pedigree.getValue(), Integer.valueOf(this.weight.getValue()),
-                Integer.valueOf(this.height.getValue()), this.nickUsuario);
+        Gallina gallina = new Gallina(0, this.name.getValue(), this.pedigree.getValue(), Double.valueOf(this.weight.getValue()),
+                Double.valueOf(this.height.getValue()), this.nickUsuario);
         manejadorBaseDeDatos.insertHen(gallina);
     }
 }
